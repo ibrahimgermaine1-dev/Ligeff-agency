@@ -3,9 +3,9 @@ import { PILLARS } from "@/lib/site/pillars";
 import { WorkflowMap, TimeSavedChart, ErrorRateDiagram } from "@/components/site/ops-diagrams";
 
 export const metadata = {
-  title: "Operational Efficiency — Buy back your team's time",
+  title: "Automation & AI — Software that does the repetitive work",
   description:
-    "Custom AI apps, advanced automation, and intelligent autonomous agents that buy back your team's time and kill the small errors that drain cash.",
+    "We build custom software, workflow automation, and AI agents that do the repetitive work your team does by hand, so they can do the work you actually hired them to do.",
 };
 
 export default function OperationalEfficiencyPage() {
@@ -15,69 +15,70 @@ export default function OperationalEfficiencyPage() {
     <ServicePage
       data={{
         pillar,
-        bleed: "Your team is paid to think, and most of their day is spent doing what a machine should have done five years ago.",
-        bleedBodyShort:
-          "We build the operational machines that quietly run the back of your business, so the work that took a week and three pairs of hands is finished before the second cup of coffee.",
+        heroHeadline:
+          "Your team is paid to think. Most of their week is spent doing what software should do.",
+        heroBody:
+          "We build software that handles the boring, repetitive, error-prone tasks that eat your team's week. The work that used to take three days gets done in fourteen minutes, and the small mistakes that cost you refunds and lost accounts stop happening.",
         phases: [
           {
             n: "01",
-            title: "Write the leak as a number.",
-            body: "We measure, in hours and dollars, exactly how much of the week is spent on the task we are about to automate.",
+            title: "Count the cost.",
+            body: "We measure, in hours and dollars, exactly how much the current way of doing things costs you. No guessing.",
           },
           {
             n: "02",
-            title: "Map the workflow end to end.",
-            body: "We trace the task from entry to exit, finding the real leak, which is almost never where you think it is.",
+            title: "Map the work.",
+            body: "We trace the task from start to finish, finding exactly where time and money are being lost.",
           },
           {
             n: "03",
-            title: "Build, then test in the dark.",
-            body: "We run the machine side by side with the manual workflow for two weeks before we cut over, so there is zero anxiety.",
+            title: "Build and test.",
+            body: "We build the software and run it alongside the old way for two weeks, so there's no risk when we switch over.",
           },
           {
             n: "04",
-            title: "Hand back the keys.",
-            body: "We document, train, and leave when the math is hit. No retainer, no drag, no dependency.",
+            title: "Hand it over.",
+            body: "We train your team, document everything, and leave when the work has paid for itself. No ongoing retainer.",
           },
         ],
-        proofHeadline: "11 touchpoints collapsed to 2.",
+        proofHeadline: "11 steps became 2. Three days became 14 minutes.",
         proofBody:
-          "A real before-and-after from a real engagement. Eleven human touchpoints became two. Time-in-workflow dropped from three days to fourteen minutes. Error rate dropped from six in a hundred to two in a thousand.",
+          "A real before-and-after from a real project. Eleven manual steps collapsed to two. The time it took to finish the work dropped from three days to fourteen minutes. The error rate dropped from six in every hundred to two in every thousand.",
         proofItems: [
           {
             ratio: "16 / 9",
-            label: "WORKFLOW MAP · BEFORE / AFTER",
+            label: "BEFORE / AFTER WORKFLOW",
             children: <WorkflowMap />,
           },
           {
             ratio: "3 / 4",
-            label: "TIME RECOVERED · HRS / WEEK",
+            label: "HOURS RECOVERED PER WEEK",
             children: <TimeSavedChart />,
           },
           {
             ratio: "3 / 4",
-            label: "ERROR RATE · BEFORE / AFTER",
+            label: "ERROR RATE BEFORE / AFTER",
             children: <ErrorRateDiagram />,
           },
         ],
-        mathHeadline: "$48,000 / year recovered, per role.",
+        mathHeadline: "$48,000 saved per year, per role.",
         mathBody:
-          "Built from the salary of the senior person whose week we recovered, multiplied by the share of their week the workflow used to eat, minus the cost of running the automation — which is usually a rounding error. The number is conservative, because it does not include the deals that stopped drifting or the refunds that stopped going out.",
+          "This number comes from the salary of the senior person whose week we recovered, multiplied by the share of their week the work used to eat, minus the cost of running the software (which is usually negligible). The number is conservative — it doesn't count the deals that stopped slipping or the refunds that stopped going out.",
         mathColumns: [
           {
-            label: "Cost of doing nothing",
-            headline: "$48,000 / year per role, every year, forever.",
-            body: "The salary continues for work a machine should do, deals keep drifting, refunds keep going out, and the cost compounds until the senior person leaves.",
+            label: "Do nothing",
+            headline: "$48,000 lost per year, per role.",
+            body: "The salary keeps getting paid for work software should do. Deals keep slipping. Refunds keep going out. The cost compounds until the senior person leaves.",
           },
           {
-            label: "Cost of doing it cheap",
-            headline: "$14,000 in failed automation + 6 months of churn.",
-            body: "A cheap vendor builds without measuring first, the automation breaks on the first edge case, the team stops trusting it, and the leak stays open.",
+            label: "Do it cheap",
+            headline: "$14,000 wasted, plus six months lost.",
+            body: "A cheap vendor builds without measuring first. The software breaks on the first edge case. The team stops trusting it. The work goes back to manual.",
           },
           {
-            label: "Cost of doing it with Ligeff",
-            headline: "$24,000 one-time, paid back in 18 weeks.",
-            body: "We measure before we build, we test in the dark, and we leave when the math is hit. The automation runs quietly for five years without a retainer.",
+            label: "Do it with Ligeff",
+            headline: "$24,000 one-time. Paid back in 18 weeks.",
+            body: "We measure before we build. We test before we switch over. We leave when the numbers are hit. The software runs for five years without a retainer.",
             emphasis: true,
           },
         ],

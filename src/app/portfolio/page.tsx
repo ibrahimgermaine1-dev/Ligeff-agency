@@ -4,32 +4,32 @@ import { Eyebrow } from "@/components/site/section-header";
 import { Figure } from "@/components/site/plate";
 
 export const metadata = {
-  title: "Portfolio — Work that paid for itself inside the first ninety days",
+  title: "Portfolio — Real work, real numbers",
   description:
-    "A selection of Ligeff Agency engagements across the three pillars, each shown with the leak we closed and the math we agreed on.",
+    "A selection of Ligeff Agency projects across our three services. Each shows the problem we fixed and the real numbers we delivered.",
 };
 
 type Work = {
   n: string;
   title: string;
-  pillar: string;
-  pillarHref: string;
-  leak: string;
-  math: string;
+  service: string;
+  serviceHref: string;
+  problem: string;
+  result: string;
   src: string;
   alt: string;
   ratio: string;
-  size: "wide" | "tall" | "std";
+  size: "wide" | "tall";
 };
 
 const WORKS: Work[] = [
   {
     n: "01",
     title: "Property developer · Pre-construction deposits",
-    pillar: "02 — Immersive Visual Assets",
-    pillarHref: "/services/immersive-visual-assets",
-    leak: "0 deposits against a $4M build. Buyers could not picture the result.",
-    math: "3.4× lift in deposits inside 6 weeks.",
+    service: "02 — 3D & Visuals",
+    serviceHref: "/services/immersive-visual-assets",
+    problem: "Zero deposits against a $4M build. Buyers couldn't picture the finished building.",
+    result: "3.4× more deposits within six weeks of delivering the renders.",
     src: "/samples/pillar-02-renderflaux/rf-01.jpg",
     alt: "Photorealistic 3D render of a modern two-story house with a pool at nighttime",
     ratio: "16 / 10",
@@ -37,35 +37,35 @@ const WORKS: Work[] = [
   },
   {
     n: "02",
-    title: "B2B services · Sales ops automation",
-    pillar: "01 — Operational Efficiency",
-    pillarHref: "/services/operational-efficiency",
-    leak: "Senior ops lead spending 22 hrs/week chasing status across 4 systems.",
-    math: "22 hrs/week recovered. Paid back in 18 weeks.",
+    title: "B2B services · Sales operations",
+    service: "01 — Automation & AI",
+    serviceHref: "/services/operational-efficiency",
+    problem: "Senior ops lead spending 22 hours per week chasing status updates across four systems.",
+    result: "22 hours recovered per week. Project paid for itself in 18 weeks.",
     src: "/samples/pillar-02-renderflaux/rf-05.jpg",
-    alt: "Architectural render representing operational precision — single-story house with black roof",
+    alt: "Architectural render representing precision and structure",
     ratio: "4 / 5",
     size: "tall",
   },
   {
     n: "03",
-    title: "Luxury furniture · AI-answer placement",
-    pillar: "03 — Market Dominance",
-    pillarHref: "/services/market-dominance",
-    leak: "0 of 8 buyer queries answered with the client's name across AI search.",
-    math: "First-answer on 6 of 8 queries within 120 days.",
+    title: "Luxury furniture · Online visibility",
+    service: "03 — Websites & Search",
+    serviceHref: "/services/market-dominance",
+    problem: "Zero of eight buyer queries returned the client's name in AI search results.",
+    result: "Six of eight queries returned the client's name within 120 days.",
     src: "/samples/pillar-03-okunade/ok-02.jpg",
-    alt: "Social media post about the hidden costs of DIY web design",
+    alt: "Marketing material about the hidden costs of DIY web design",
     ratio: "4 / 5",
     size: "tall",
   },
   {
     n: "04",
-    title: "Architecture studio · Material-truth renders",
-    pillar: "02 — Immersive Visual Assets",
-    pillarHref: "/services/immersive-visual-assets",
-    leak: "Lost shortlist because the competition rendered and the studio did not.",
-    math: "2 of 3 shortlists won after renders went into the pitch.",
+    title: "Architecture studio · Pitch materials",
+    service: "02 — 3D & Visuals",
+    serviceHref: "/services/immersive-visual-assets",
+    problem: "Lost a shortlist because the competition had renders and the studio didn't.",
+    result: "Won two of three shortlists after adding renders to the pitch.",
     src: "/samples/pillar-02-renderflaux/rf-03.jpg",
     alt: "Photorealistic 3D render of an A-frame cabin on a wooden deck surrounded by trees",
     ratio: "16 / 10",
@@ -73,11 +73,11 @@ const WORKS: Work[] = [
   },
   {
     n: "05",
-    title: "Insurance brokerage · Quote-flow automation",
-    pillar: "01 — Operational Efficiency",
-    pillarHref: "/services/operational-efficiency",
-    leak: "Quote turnaround 3 days. 19% of prospects went elsewhere waiting.",
-    math: "Turnaround cut to 14 minutes. 19% loss became 4% lift.",
+    title: "Insurance brokerage · Quote turnaround",
+    service: "01 — Automation & AI",
+    serviceHref: "/services/operational-efficiency",
+    problem: "Quote turnaround was three days. 19% of prospects went elsewhere while waiting.",
+    result: "Turnaround cut to 14 minutes. The 19% loss became a 4% gain.",
     src: "/samples/pillar-02-renderflaux/rf-06.jpg",
     alt: "Photorealistic 3D render of a modern A-frame house with a pool at nighttime",
     ratio: "16 / 10",
@@ -85,11 +85,11 @@ const WORKS: Work[] = [
   },
   {
     n: "06",
-    title: "Online educator · Course as category teacher",
-    pillar: "03 — Market Dominance",
-    pillarHref: "/services/market-dominance",
-    leak: "Vendor positioning. AI search refused to cite the client as a source.",
-    math: "22-lesson course shipped. AI citations up 4× in 90 days.",
+    title: "Online educator · Course creation",
+    service: "03 — Websites & Search",
+    serviceHref: "/services/market-dominance",
+    problem: "AI search wouldn't cite the client as a source. They were positioned as a vendor, not a teacher.",
+    result: "22-lesson course shipped. AI citations up 4× in 90 days.",
     src: "/samples/pillar-03-okunade/ok-01.jpg",
     alt: "Promotional flyer for the RPM Formula Mini Course",
     ratio: "16 / 10",
@@ -100,22 +100,19 @@ const WORKS: Work[] = [
 export default function PortfolioPage() {
   return (
     <PageShell>
-      {/* ============================================================
-          HERO — screen-fit
-          ============================================================ */}
+      {/* HERO */}
       <section className="section-screen border-b border-line">
-        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16">
-          <div className="grid grid-cols-1 items-center gap-y-12 lg:grid-cols-12 lg:gap-x-16">
+        <div className="container-locked">
+          <div className="grid grid-cols-1 items-center gap-y-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-8">
-              <Eyebrow index="00">Portfolio · A selection of the work</Eyebrow>
+              <Eyebrow index="00">Portfolio</Eyebrow>
               <h1 className="text-display mt-8 max-w-[16ch]">
-                Work that paid for itself inside ninety days.
+                Real work, real numbers.
               </h1>
-              <p className="text-body-lg mt-8 max-w-[52ch] text-ink-2">
-                We show the leak we closed and the math we agreed on — not
-                logos and testimonials. The leak and the math are the only
-                two numbers that matter when you are deciding whether to hire
-                a studio like ours.
+              <p className="text-body-lg mt-8 measure text-ink-2">
+                We show the problem we fixed and the result we delivered —
+                not logos and testimonials. Those are the only two numbers
+                that matter when you're deciding whether to hire us.
               </p>
             </div>
             <div className="lg:col-span-4">
@@ -131,19 +128,13 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          THE WORK — asymmetric grid, real images
-          ============================================================ */}
-      <section className="border-b border-line">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16 py-20 md:py-32">
+      {/* WORK GRID */}
+      <section className="section border-b border-line">
+        <div className="container-locked">
           <div className="grid grid-cols-1 gap-x-8 gap-y-20 md:grid-cols-12">
             {WORKS.map((w, i) => {
               const colSpan =
-                w.size === "wide"
-                  ? "md:col-span-7"
-                  : w.size === "tall"
-                  ? "md:col-span-5"
-                  : "md:col-span-6";
+                w.size === "wide" ? "md:col-span-7" : "md:col-span-5";
               const offset =
                 i % 2 === 1 && w.size === "tall"
                   ? "md:col-start-8"
@@ -156,37 +147,37 @@ export default function PortfolioPage() {
                   key={w.n}
                   className={`group flex flex-col gap-6 ${colSpan} ${offset}`}
                 >
-                  <Link href={w.pillarHref} className="img-frame block">
+                  <Link href={w.serviceHref} className="frame block">
                     <Figure
                       src={w.src}
                       alt={w.alt}
                       ratio={w.ratio}
-                      label={`${w.n} · ${w.pillar.split(" — ")[0]}`}
+                      label={`${w.n} · ${w.service.split(" — ")[0]}`}
                     />
                   </Link>
 
                   <div className="flex items-baseline justify-between gap-6 border-t border-line pt-5">
                     <span className="text-eyebrow text-ink-3">{w.n}</span>
                     <Link
-                      href={w.pillarHref}
+                      href={w.serviceHref}
                       className="text-caption text-ink-3 hover:text-ink transition-colors"
                     >
-                      {w.pillar} →
+                      {w.service} →
                     </Link>
                   </div>
 
-                  <h2 className="text-title text-ink leading-snug max-w-[36ch]">
+                  <h2 className="text-title text-ink max-w-[36ch]">
                     {w.title}
                   </h2>
 
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-x-8">
                     <div>
-                      <p className="text-eyebrow text-ink-3">The leak</p>
-                      <p className="text-body mt-2 text-ink-2">{w.leak}</p>
+                      <p className="text-eyebrow text-ink-3">The problem</p>
+                      <p className="text-body mt-2 text-ink-2">{w.problem}</p>
                     </div>
                     <div>
-                      <p className="text-eyebrow text-ink-3">The math</p>
-                      <p className="text-body mt-2 text-ink">{w.math}</p>
+                      <p className="text-eyebrow text-ink-3">The result</p>
+                      <p className="text-body mt-2 text-ink">{w.result}</p>
                     </div>
                   </div>
                 </article>
@@ -196,23 +187,21 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          CTA — screen-fit
-          ============================================================ */}
+      {/* CTA */}
       <section className="section-screen border-b border-line bg-deep">
-        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16">
-          <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12">
+        <div className="container-locked">
+          <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <Eyebrow index="02" inverse>
-                The close
+                Start a project
               </Eyebrow>
               <h2 className="text-display mt-8 text-ink-inverse max-w-[18ch]">
-                If the leak looks familiar, send us a brief.
+                If any of this sounds familiar, talk to us.
               </h2>
             </div>
-            <div className="flex flex-col justify-end gap-6 lg:col-span-4 lg:pl-8 lg:border-l lg:border-line-inverse">
-              <Link href="/contact" className="btn-primary btn-primary-on-dark w-fit">
-                Begin a brief
+            <div className="flex flex-col justify-end gap-6 lg:col-span-4 lg:col-start-9 lg:border-l lg:border-line-inverse lg:pl-8">
+              <Link href="/contact" className="btn btn-on-dark w-fit">
+                Start a project
                 <span className="btn-arrow" aria-hidden>→</span>
               </Link>
             </div>

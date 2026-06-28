@@ -4,79 +4,79 @@ export type Pillar = {
   title: string;
   shortTitle: string;
   href: string;
-  /** Pain-led hero line, used on home + services hub */
-  bleedHeadline: string;
-  /** One-line value, used in nav-adjacent surfaces */
+  /** One-line value statement, plain English, no metaphors */
   valueLine: string;
-  /** Two- to three-sentence long-form value description */
+  /** Two-sentence description, concrete */
   description: string;
   offerings: string[];
-  /** Material truth anchor label */
+  /** What we deliver, in plain words */
+  deliverable: string;
+  /** The proof label */
   proofLabel: string;
-  /** ROI math headline */
-  mathHeadline: string;
+  /** The result, as a concrete number */
+  resultStat: string;
+  resultLabel: string;
 };
 
 export const PILLARS: Pillar[] = [
   {
     n: "01",
     slug: "operational-efficiency",
-    title: "Operational Efficiency",
-    shortTitle: "Operational Efficiency",
+    title: "Automation & AI",
+    shortTitle: "Automation & AI",
     href: "/services/operational-efficiency",
-    bleedHeadline:
-      "Your team is paid to think, and most of their day is spent doing things a machine should have done five years ago.",
     valueLine:
-      "Custom AI apps, advanced automation, and autonomous agents that buy back your time and kill the small errors that drain cash.",
+      "We build software that does the repetitive work your team does by hand, so they can do the work you actually hired them to do.",
     description:
-      "We build the operational machines that quietly run the back of your business while your team sleeps, so the work that used to take a week and three pairs of hands is finished before the second cup of coffee, and the small human errors that quietly cost you refunds, lost accounts, and bad reviews stop happening on their own.",
+      "We write custom software, set up automation, and build AI agents that handle the boring, error-prone tasks that eat your team's week. The work that used to take three days gets done in fourteen minutes, and the small mistakes that cost you refunds and lost accounts stop happening.",
     offerings: [
-      "Custom AI Apps",
-      "Advanced Automation Workflows",
-      "Intelligent Autonomous Agents",
+      "Custom software",
+      "Workflow automation",
+      "AI agents",
     ],
-    proofLabel: "Operational automation map",
-    mathHeadline: "$48,000 / year in recovered operational time, per role.",
+    deliverable: "Software that runs your repetitive work without you.",
+    proofLabel: "Before / after workflow map",
+    resultStat: "22 hrs",
+    resultLabel: "recovered per week, per role",
   },
   {
     n: "02",
     slug: "immersive-visual-assets",
-    title: "Immersive Visual Assets",
-    shortTitle: "Immersive Visual Assets",
+    title: "3D Rendering & Visuals",
+    shortTitle: "3D & Visuals",
     href: "/services/immersive-visual-assets",
-    bleedHeadline:
-      "Buyers cannot want what they cannot see, and the most expensive thing you sell is the thing you cannot yet show them.",
     valueLine:
-      "Photorealistic 3D renders, interactive walkthroughs, and AI video and image that close the imagination gap before the deal is won.",
+      "We create photorealistic 3D images and videos of buildings and products that don't exist yet, so you can sell them before you build them.",
     description:
-      "We build the visual assets that let a buyer walk through a property that has not broken ground, hold a product that has not been manufactured, and watch a film that has not been shot, so the sale is half-closed in the buyer's head before they ever speak to your team, and the gap between what you are selling and what they can picture is no longer the reason the deal slips.",
+      "We render buildings, interiors, and products in photorealistic detail, before they exist in real life. Buyers can walk through a property that hasn't broken ground, or hold a product that hasn't been manufactured, and the sale is half-closed in their head before they ever speak to your team.",
     offerings: [
-      "Photorealistic 3D Renders",
-      "Interactive Property Walkthroughs",
-      "AI Video & High-Fidelity Image Generation",
+      "3D architectural renders",
+      "Property walkthroughs",
+      "AI video & image generation",
     ],
-    proofLabel: "Photoreal walkthrough stills",
-    mathHeadline: "3.4x lift in pre-construction deposits on the average project.",
+    deliverable: "Renders and videos that look like the real thing.",
+    proofLabel: "Real render samples",
+    resultStat: "3.4×",
+    resultLabel: "more pre-construction deposits in 6 weeks",
   },
   {
     n: "03",
     slug: "market-dominance",
-    title: "Market Dominance",
-    shortTitle: "Market Dominance",
+    title: "Websites & Search",
+    shortTitle: "Websites & Search",
     href: "/services/market-dominance",
-    bleedHeadline:
-      "When a buyer asks an AI who to trust, your name is either the first answer or it is invisible, and there is no middle ground anymore.",
     valueLine:
-      "High-end web, educational courses, AI SEO, and GEO that make your business the definitive answer when buyers ask the question.",
+      "We build websites and write content that makes your business the first answer when people search Google or ask an AI.",
     description:
-      "We build the market presence that makes your business the first and definitive answer when buyers ask an AI search engine, a traditional search engine, or a friend with a phone, so you stop losing deals you never knew existed to competitors who showed up first and answered the question better, and the work you have already done finally meets the audience it was built for.",
+      "We build high-end websites, write educational courses, and create content that makes your business show up first when buyers search online. When someone asks Google or an AI who to trust in your category, the answer they get back is your name, not your competitor's.",
     offerings: [
-      "High-End Web Development",
-      "Educational Courses",
-      "AI SEO",
-      "GEO (Generative Engine Optimization)",
+      "Web development",
+      "Educational courses",
+      "AI search optimization",
     ],
-    proofLabel: "AI-answer placement proof",
-    mathHeadline: "First-answer placement on 6 of 8 buyer queries within 120 days.",
+    deliverable: "A web presence that makes you the first answer.",
+    proofLabel: "Real marketing samples",
+    resultStat: "6 of 8",
+    resultLabel: "buyer queries answered with your name in 120 days",
   },
 ];

@@ -40,10 +40,10 @@ export function Header() {
         scrolled ? "border-b border-line" : "border-b border-transparent"
       )}
     >
-      <div className="mx-auto flex h-[68px] max-w-[1440px] items-center justify-between px-6 md:h-[80px] md:px-10 lg:px-16">
+      <div className="container-locked flex h-[68px] items-center justify-between lg:h-[80px]">
         <WordmarkLink />
 
-        <nav className="hidden items-center gap-9 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -56,9 +56,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Link href="/contact" className="btn-secondary">
-            Begin a brief
+        <div className="hidden lg:block">
+          <Link href="/contact" className="btn btn-outline">
+            Start a project
             <span className="btn-arrow" aria-hidden>
               →
             </span>
@@ -67,7 +67,7 @@ export function Header() {
 
         <button
           type="button"
-          className="md:hidden p-2 -mr-2 text-ink"
+          className="lg:hidden p-2 -mr-2 text-ink"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -98,12 +98,12 @@ export function Header() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "md:hidden overflow-hidden border-t border-line bg-bg transition-[max-height,opacity] duration-300",
+          "lg:hidden overflow-hidden border-t border-line bg-bg transition-[max-height,opacity] duration-300",
           open ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <nav
-          className="mx-auto flex max-w-[1440px] flex-col px-6 py-6"
+          className="container-locked flex flex-col py-4"
           aria-label="Mobile"
         >
           {NAV.map((item, i) => (
@@ -120,8 +120,8 @@ export function Header() {
               </span>
             </Link>
           ))}
-          <Link href="/contact" onClick={close} className="btn-primary mt-6 w-full">
-            Begin a brief →
+          <Link href="/contact" onClick={close} className="btn mt-6 w-full">
+            Start a project →
           </Link>
         </nav>
       </div>

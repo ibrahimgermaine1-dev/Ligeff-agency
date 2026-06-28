@@ -4,9 +4,9 @@ import { Eyebrow } from "@/components/site/section-header";
 import { Figure } from "@/components/site/plate";
 
 export const metadata = {
-  title: "About — A small, senior team that refuses the fourth offering",
+  title: "About — Four senior specialists, no junior staff",
   description:
-    "Ligeff Agency is a four-person studio of senior specialists who build operational machines, immersive visual assets, and market dominance.",
+    "Ligeff Agency is a four-person studio of senior specialists. No junior staff, no offshore team, no account managers.",
 };
 
 const TEAM = [
@@ -14,62 +14,54 @@ const TEAM = [
     n: "01",
     initials: "IG",
     name: "Ibrahim Germaine",
-    role: "Founder · Operational machines",
-    bio: "Spent a decade running operations inside businesses that were quietly bleeding time, and built the automation practice at Ligeff to close that bleed permanently.",
-    pillar: "01 — Operational Efficiency",
+    role: "Founder · Automation & AI",
+    bio: "Spent a decade running operations inside businesses that were losing time to manual work. Now builds the automation practice at Ligeff.",
   },
   {
     n: "02",
     initials: "M·A",
     name: "Lead Visual Architect",
-    role: "Founder · Immersive visual assets",
-    bio: "Trained in architectural visualization and material-truth rendering, leads every walkthrough and render with the discipline of someone who would rather ship nothing than ship a fake.",
-    pillar: "02 — Immersive Visual Assets",
+    role: "Founder · 3D & Visuals",
+    bio: "Trained in architectural visualization. Leads every render and walkthrough, and would rather ship nothing than ship a fake-looking image.",
   },
   {
     n: "03",
     initials: "S·O",
     name: "Lead Search Architect",
-    role: "Founder · Market dominance",
-    bio: "Has been building and ranking serious web properties since before AI search existed, now makes sure the AI gives back our client's name, not a competitor's.",
-    pillar: "03 — Market Dominance",
+    role: "Founder · Websites & Search",
+    bio: "Has been building and ranking websites since before AI search existed. Now makes sure AI gives back our client's name, not a competitor's.",
   },
   {
     n: "04",
     initials: "A·K",
     name: "Studio Producer",
-    role: "Engagements, math, deadlines",
-    bio: "Keeps the studio honest. Refuses to let an engagement open until the leak is written as a number, and closes it only when the number is hit.",
-    pillar: "All three pillars",
+    role: "Projects, numbers, deadlines",
+    bio: "Keeps the studio honest. Won't open a project until the cost is written down as a number, and won't close it until that number is hit.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <PageShell>
-      {/* ============================================================
-          HERO — screen-fit, asymmetric 7/5 with portrait
-          ============================================================ */}
+      {/* HERO */}
       <section className="section-screen border-b border-line">
-        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16">
-          <div className="grid grid-cols-1 items-center gap-y-12 lg:grid-cols-12 lg:gap-x-16">
+        <div className="container-locked">
+          <div className="grid grid-cols-1 items-center gap-y-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
-              <Eyebrow index="00">About Ligeff Agency</Eyebrow>
+              <Eyebrow index="00">About</Eyebrow>
               <h1 className="text-display mt-8 max-w-[14ch]">
-                Four people. Three pillars.
+                Four people. Three services.
               </h1>
-              <p className="text-body-lg mt-8 max-w-[52ch] text-ink-2">
-                The discipline of refusing the fourth offering is the single
-                reason the work in each of the three is as good as it is. We
-                take on a small number of engagements each quarter, we charge
-                seriously for them, and we only accept work where the math is
-                unambiguous.
+              <p className="text-body-lg mt-8 measure text-ink-2">
+                We are four senior specialists. We take on a small number of
+                projects each quarter, we charge properly for them, and we
+                only accept work where we can show the numbers will work.
               </p>
             </div>
             <div className="lg:col-span-5">
               <Figure
                 src="/samples/pillar-03-okunade/ok-portrait.jpg"
-                alt="Portrait of a senior team member, representing the studio's editorial portrait style"
+                alt="Portrait representing the studio's editorial style"
                 ratio="4 / 5"
                 label="THE STUDIO · LAGOS"
                 priority
@@ -79,38 +71,36 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          WHY WE EXIST — screen-fit
-          ============================================================ */}
+      {/* WHY WE EXIST */}
       <section className="section-screen border-b border-line bg-bone">
-        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16">
-          <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-16">
-            <div className="lg:col-span-4">
+        <div className="container-locked">
+          <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
               <Eyebrow index="01">Why we exist</Eyebrow>
-              <h2 className="text-headline mt-6 max-w-[14ch]">
+              <h2 className="text-headline mt-6 max-w-[16ch]">
                 We built the studio we wished we could have hired.
               </h2>
             </div>
-            <div className="lg:col-span-7 lg:col-start-6">
-              <p className="text-body-lg text-ink-2 max-w-[52ch]">
+            <div className="lg:col-span-6 lg:col-start-7">
+              <p className="text-body-lg text-ink-2 measure">
                 Every person on this team spent years inside businesses that
-                were quietly losing money to one of the three leaks we now
-                close. We built Ligeff to be the studio that does the work
-                cleanly, takes the engagement seriously, and refuses to sell
-                a fourth thing you do not need.
+                were quietly losing money to problems we now fix for clients.
+                We built Ligeff to be the studio that does the work cleanly,
+                takes the project seriously, and refuses to sell you things
+                you don't need.
               </p>
-              <div className="mt-12 grid grid-cols-3 gap-8 border-t border-line pt-12">
+              <div className="mt-12 grid grid-cols-3 gap-8 border-t border-line pt-10">
                 <div>
                   <p className="stat-number">4</p>
-                  <p className="text-eyebrow mt-3 text-ink-3">Senior specialists</p>
+                  <p className="text-eyebrow mt-3 text-ink-3">Senior staff</p>
                 </div>
                 <div>
                   <p className="stat-number">0</p>
                   <p className="text-eyebrow mt-3 text-ink-3">Junior staff</p>
                 </div>
                 <div>
-                  <p className="stat-number">∞</p>
-                  <p className="text-eyebrow mt-3 text-ink-3">No fourth pillar</p>
+                  <p className="stat-number">3</p>
+                  <p className="text-eyebrow mt-3 text-ink-3">Services only</p>
                 </div>
               </div>
             </div>
@@ -118,17 +108,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          THE TEAM — screen-fit, staggered asymmetric
-          ============================================================ */}
+      {/* TEAM */}
       <section className="section-screen border-b border-line">
-        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16">
-          <Eyebrow index="02">The four of us</Eyebrow>
-          <h2 className="text-headline mt-6 max-w-[20ch]">
+        <div className="container-locked">
+          <Eyebrow index="02">The team</Eyebrow>
+          <h2 className="text-headline mt-6 max-w-[18ch]">
             No junior staff. No offshore team.
           </h2>
 
-          <div className="mt-16 grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2 lg:gap-x-20">
+          <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2 lg:gap-x-16">
             {TEAM.map((m, i) => (
               <article
                 key={m.n}
@@ -136,7 +124,7 @@ export default function AboutPage() {
                   i % 2 === 1 ? "md:mt-16" : ""
                 }`}
               >
-                <div className="frame-sharp" style={{ aspectRatio: "4 / 5" }}>
+                <div className="frame" style={{ aspectRatio: "4 / 5" }}>
                   <div
                     className="flex h-full w-full items-center justify-center"
                     style={{
@@ -147,7 +135,7 @@ export default function AboutPage() {
                     <span
                       className="font-display"
                       style={{
-                        fontSize: "clamp(72px, 8vw, 128px)",
+                        fontSize: "clamp(64px, 7vw, 112px)",
                         color: "var(--ink)",
                         opacity: 0.18,
                         letterSpacing: "-0.04em",
@@ -162,38 +150,35 @@ export default function AboutPage() {
                   <span className="text-eyebrow text-ink-3">{m.role}</span>
                 </div>
                 <h3 className="text-headline text-ink">{m.name}</h3>
-                <p className="text-body text-ink-2 max-w-[44ch]">{m.bio}</p>
-                <p className="text-caption text-ink-3 mt-1">Leads · {m.pillar}</p>
+                <p className="text-body text-ink-2 measure">{m.bio}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============================================================
-          HOW WE COLLABORATE — screen-fit, dark band
-          ============================================================ */}
+      {/* COLLABORATION */}
       <section className="section-screen border-b border-line bg-deep">
-        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16">
-          <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-16">
+        <div className="container-locked">
+          <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Eyebrow index="03" inverse>
-                How we collaborate
+                How we work
               </Eyebrow>
-              <h2 className="text-headline mt-6 text-ink-inverse max-w-[14ch]">
-                Direct line to the person doing the work.
+              <h2 className="text-headline mt-6 text-ink-inverse max-w-[16ch]">
+                You talk to the person doing the work.
               </h2>
             </div>
             <div className="lg:col-span-6 lg:col-start-7">
-              <p className="text-body-lg text-ink-2-inverse max-w-[52ch]">
-                No account managers. The person who pitched you the
-                engagement is the same person who builds the work and the
-                same person who reports against the math every thirty days.
-                We meet weekly, we send a written report every thirty days,
-                and we end the engagement the moment the number is hit.
+              <p className="text-body-lg text-ink-2-inverse measure">
+                No account managers. The person who pitches the project is
+                the person who builds it, and the person who reports on the
+                numbers every thirty days. We meet weekly, send a written
+                report monthly, and end the project the moment the numbers
+                are hit.
               </p>
-              <Link href="/contact" className="btn-primary btn-primary-on-dark mt-10 w-fit">
-                Begin a brief
+              <Link href="/contact" className="btn btn-on-dark mt-10 w-fit">
+                Start a project
                 <span className="btn-arrow" aria-hidden>→</span>
               </Link>
             </div>

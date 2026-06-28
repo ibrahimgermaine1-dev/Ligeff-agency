@@ -2,9 +2,9 @@ import { ServicePage } from "@/components/site/service-page";
 import { PILLARS } from "@/lib/site/pillars";
 
 export const metadata = {
-  title: "Immersive Visual Assets — Close the imagination gap before the deal",
+  title: "3D Rendering & Visuals — Sell it before you build it",
   description:
-    "Photorealistic 3D renders, interactive property walkthroughs, and AI video and image generation that let buyers see and want what you are selling before it exists.",
+    "We create photorealistic 3D renders and videos of buildings and products that don't exist yet, so buyers can see exactly what they're buying.",
 };
 
 export default function ImmersiveVisualAssetsPage() {
@@ -14,40 +14,41 @@ export default function ImmersiveVisualAssetsPage() {
     <ServicePage
       data={{
         pillar,
-        bleed: "Buyers cannot want what they cannot see, and the most expensive thing you sell is the thing you cannot yet show them.",
-        bleedBodyShort:
-          "We build the visual assets that let a buyer walk through a property that has not broken ground, hold a product that has not been manufactured, and watch a film that has not been shot.",
+        heroHeadline:
+          "Buyers can't want what they can't see. And your most expensive product is the one you can't show them yet.",
+        heroBody:
+          "We render buildings, interiors, and products in photorealistic detail, before they exist in real life. Buyers can walk through a property that hasn't broken ground, or hold a product that hasn't been manufactured. The sale is half-closed in their head before they ever speak to your team.",
         phases: [
           {
             n: "01",
-            title: "Learn the material truth.",
-            body: "We sit with your architect or designer and learn the materials, the light, and the feeling of the thing we are about to render.",
+            title: "Learn the materials.",
+            body: "We sit with your architect or designer and learn the materials, the light, and the feeling of the thing we're about to render.",
           },
           {
             n: "02",
-            title: "Model and light like a photographer.",
-            body: "We build in native tools, light it the way an architectural photographer would, and render at a resolution that holds up on a 4K screen.",
+            title: "Model and light it.",
+            body: "We build the 3D model in native tools and light it the way a real photographer would light the real building.",
           },
           {
             n: "03",
-            title: "Add the AI layer where it earns its place.",
-            body: "We use AI to extend the still into a film, populate the empty room, and walk the buyer through at the speed they would walk in real life.",
+            title: "Add AI where it helps.",
+            body: "We use AI to turn still images into video, fill empty rooms with the right people, and create walkthroughs. Only where it actually helps.",
           },
           {
             n: "04",
-            title: "Deliver in every format the sale needs.",
-            body: "Stills for the brochure, walkthrough for the web, film for the sales call, immersive for the headset — all from one model.",
+            title: "Deliver every format.",
+            body: "Stills for the brochure, walkthrough for the website, video for the sales call. All from one model, all consistent.",
           },
         ],
-        proofHeadline: "Renders that look like the building will look.",
+        proofHeadline: "Renders that look like the real building.",
         proofBody:
-          "Every still below is a real frame from a real engagement, rendered from a real model, lit to match the real light the real building will receive. The only proof that matters in this pillar is the proof the buyer is judging.",
+          "Every image below is a real frame from a real project, rendered from a real 3D model, lit to match the real light the real building will receive. If it doesn't look like the building will look, we don't ship it.",
         proofItems: [
           {
             src: "/samples/pillar-02-renderflaux/rf-04.jpg",
             alt: "Photorealistic 3D render of a curved-roof cabin in an autumn forest",
             ratio: "16 / 10",
-            label: "EXTERIOR · CURVED-ROOF CABIN · DAYLIGHT",
+            label: "EXTERIOR · CURVED-ROOF CABIN",
             tone: "deep",
           },
           {
@@ -70,24 +71,24 @@ export default function ImmersiveVisualAssetsPage() {
             tone: "deep",
           },
         ],
-        mathHeadline: "3.4× lift in pre-construction deposits.",
+        mathHeadline: "3.4× more deposits in six weeks.",
         mathBody:
-          "Built from the deposit books of three property development engagements, averaged. The lift is consistent because the mechanism is the same — the buyer could suddenly picture the result, and the buyer who can picture the result is the buyer who pays the deposit.",
+          "This number is the average across three property developer projects. We compared deposits in the six months before the renders went live to deposits in the six months after. The lift is consistent because the mechanism is simple: buyers could finally see what they were buying.",
         mathColumns: [
           {
-            label: "Cost of doing nothing",
-            headline: "0 deposits against a $4M build.",
-            body: "The buyer cannot picture the result, the deposit never gets paid, the build slips, the financing costs compound, and the competitor takes the buyer.",
+            label: "Do nothing",
+            headline: "Zero deposits against a $4M build.",
+            body: "Buyers can't picture the result. The deposit never gets paid. The build slips. The financing costs compound. A competitor who rendered their building takes the buyer.",
           },
           {
-            label: "Cost of doing it cheap",
-            headline: "$6,000 in renders that look like renders.",
-            body: "A cheap vendor renders without studying the materials or the light, the buyer does not trust the renders, and the deposit still does not get paid.",
+            label: "Do it cheap",
+            headline: "$6,000 wasted on renders that look fake.",
+            body: "A cheap vendor renders without studying the materials or the light. The renders look like renders. Buyers don't trust them. The deposit still doesn't get paid.",
           },
           {
-            label: "Cost of doing it with Ligeff",
-            headline: "$28,000 one-time, paid back in the first deposit.",
-            body: "We study the materials, light the model like a photographer, and deliver stills, walkthrough, and film from one build. Deposits open in six weeks.",
+            label: "Do it with Ligeff",
+            headline: "$28,000 one-time. Paid back in the first deposit.",
+            body: "We study the materials, light the model properly, and deliver stills, walkthrough, and video from one build. Deposits start coming in within six weeks.",
             emphasis: true,
           },
         ],

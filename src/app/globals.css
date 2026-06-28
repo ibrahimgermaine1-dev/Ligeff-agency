@@ -4,8 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =====================================================================
-   LIGEFF AGENCY — GLOBAL DESIGN TOKENS
-   Pure warm monochrome. No accent. No cool grays. No gradients.
+   LIGEFF AGENCY — LOCKED DESIGN SYSTEM
+   One spacing scale. One type scale. One color set. One component set.
+   No per-page variations. No exceptions.
    ===================================================================== */
 
 @theme inline {
@@ -24,7 +25,7 @@
   --color-ink-3-inverse: var(--ink-3-inverse);
   --color-line-inverse: var(--line-inverse);
 
-  /* shadcn compatibility aliases (kept warm) */
+  /* shadcn compatibility aliases */
   --color-background: var(--bg);
   --color-foreground: var(--ink);
   --color-card: var(--paper);
@@ -49,19 +50,15 @@
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* Radii — varied by intent */
+  /* Radii — sharp everywhere except pills */
   --radius-none: 0px;
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 6px;
-  --radius-full: 9999px;
 
   /* Easing */
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
-  /* Warm monochrome palette */
+  /* Warm monochrome palette — LOCKED */
   --bg: #FAF7F1;
   --bg-deep: #1A1611;
   --ink: #1A1611;
@@ -76,10 +73,9 @@
   --ink-3-inverse: #8A8170;
   --line-inverse: #3A332A;
 
-  /* Radius for shadcn (kept tight) */
   --radius: 0px;
 
-  /* Legacy shadcn tokens (kept warm to avoid cool-gray leakage) */
+  /* shadcn sidebar tokens kept warm */
   --sidebar: var(--bone);
   --sidebar-foreground: var(--ink);
   --sidebar-primary: var(--ink);
@@ -106,8 +102,7 @@
     color: var(--ink);
     font-family: var(--font-sans);
     font-size: 17px;
-    line-height: 1.65;
-    font-feature-settings: "ss01", "cv11";
+    line-height: 1.6;
   }
 
   ::selection {
@@ -115,15 +110,14 @@
     color: var(--bg);
   }
 
-  /* Headlines use the display serif */
+  /* Headlines — display serif, consistent weight */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 400;
     color: var(--ink);
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
 
-  /* Focus ring — warm, not blue */
   :focus-visible {
     outline: 2px solid var(--ink);
     outline-offset: 3px;
@@ -131,46 +125,50 @@
 }
 
 /* =====================================================================
-   LIGEFF AGENCY — TYPOGRAPHY UTILITIES
+   LOCKED TYPE SCALE — one scale, used everywhere
    ===================================================================== */
 
 @layer utilities {
   .font-display { font-family: var(--font-display); }
   .font-sans { font-family: var(--font-sans); }
 
+  /* H1 — hero only, one per page */
   .text-display {
     font-family: var(--font-display);
-    font-size: clamp(56px, 9vw, 156px);
+    font-size: clamp(44px, 6.5vw, 104px);
     font-weight: 400;
-    font-variation-settings: "opsz" 144, "SOFT" 0;
-    line-height: 0.92;
+    font-variation-settings: "opsz" 144;
+    line-height: 0.98;
     letter-spacing: -0.025em;
   }
 
+  /* H2 — section headlines */
   .text-headline {
     font-family: var(--font-display);
-    font-size: clamp(36px, 5vw, 72px);
+    font-size: clamp(30px, 4vw, 52px);
     font-weight: 400;
-    font-variation-settings: "opsz" 96, "SOFT" 0;
-    line-height: 1.0;
+    font-variation-settings: "opsz" 96;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  /* H3 — card titles, sub-headlines */
+  .text-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 500;
+    font-variation-settings: "opsz" 36;
+    line-height: 1.15;
     letter-spacing: -0.015em;
   }
 
-  .text-title {
-    font-family: var(--font-display);
-    font-size: clamp(24px, 2.4vw, 36px);
-    font-weight: 500;
-    font-variation-settings: "opsz" 36;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-  }
-
+  /* Eyebrow — small caps label, ONE style everywhere */
   .text-eyebrow {
     font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     line-height: 1.0;
   }
 
@@ -178,33 +176,27 @@
     font-family: var(--font-sans);
     font-size: 19px;
     font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: 0;
+    line-height: 1.55;
   }
 
   .text-body {
     font-family: var(--font-sans);
     font-size: 17px;
     font-weight: 400;
-    line-height: 1.65;
-    letter-spacing: 0;
+    line-height: 1.6;
   }
 
   .text-caption {
     font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     line-height: 1.4;
   }
 
   /* Readability column */
-  .measure {
-    max-width: 68ch;
-  }
-  .measure-tight {
-    max-width: 42ch;
-  }
+  .measure { max-width: 62ch; }
+  .measure-tight { max-width: 42ch; }
 
   /* Warm tone helpers */
   .bg-paper { background-color: var(--paper); }
@@ -220,150 +212,175 @@
   .border-line-strong { border-color: var(--line-strong); }
   .border-line-inverse { border-color: var(--line-inverse); }
 
-  /* =====================================================
-     SWISS MODERNIST — screen-fit section utilities
-     ===================================================== */
+  /* Section utility — screen-fit, locked padding */
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  @media (min-width: 1024px) {
+    .section { padding-top: 7rem; padding-bottom: 7rem; }
+  }
+
   .section-screen {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 72px);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
-  .section-tall {
-    min-height: calc(100vh - 80px);
-  }
-  .section-auto {
-    min-height: auto;
+  @media (min-width: 1024px) {
+    .section-screen { padding-top: 5rem; padding-bottom: 5rem; }
   }
 
-  /* Large display numeral — the Swiss numbered index */
-  .numeral-display {
-    font-family: var(--font-display);
-    font-size: clamp(80px, 12vw, 200px);
-    font-weight: 400;
-    font-variation-settings: "opsz" 144;
-    line-height: 0.85;
-    letter-spacing: -0.04em;
-    color: var(--ink-3);
+  /* Container — locked */
+  .container-locked {
+    width: 100%;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-  .numeral-headline {
+  @media (min-width: 768px) {
+    .container-locked { padding-left: 2.5rem; padding-right: 2.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .container-locked { padding-left: 3.5rem; padding-right: 3.5rem; }
+  }
+
+  /* Large display numeral — LOCKED one style */
+  .numeral {
     font-family: var(--font-display);
-    font-size: clamp(48px, 6vw, 96px);
+    font-size: clamp(40px, 4.5vw, 64px);
     font-weight: 400;
     font-variation-settings: "opsz" 96;
     line-height: 0.9;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     color: var(--ink-3);
   }
 
-  /* Stat block — large number + small label */
+  /* Stat number — LOCKED one style */
   .stat-number {
     font-family: var(--font-display);
-    font-size: clamp(48px, 6vw, 88px);
+    font-size: clamp(40px, 5vw, 72px);
     font-weight: 400;
     font-variation-settings: "opsz" 96;
     line-height: 0.95;
     letter-spacing: -0.02em;
     color: var(--ink);
   }
-
-  /* Image frame — sharp corners, hairline border, no shadow */
-  .frame-sharp {
-    overflow: hidden;
-    border: 1px solid var(--line);
-    border-radius: 0;
-  }
-  .frame-sharp-inverse {
-    overflow: hidden;
-    border: 1px solid var(--line-inverse);
-    border-radius: 0;
-  }
 }
 
 /* =====================================================================
-   LIGEFF AGENCY — MICRO-INTERACTIONS
-   No harsh snaps. No scale(1.05). No drop-shadow-on-hover.
+   LOCKED COMPONENTS — one of each, no variants
    ===================================================================== */
 
 @layer components {
-  /* Primary button — solid ink fill, sharp corners */
-  .btn-primary {
+  /* Eyebrow — index + label + hairline. ONE style. */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--ink-3);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 1;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background-color: var(--ink-3);
+  }
+  .eyebrow-inverse {
+    color: var(--ink-3-inverse);
+  }
+  .eyebrow-inverse::before {
+    background-color: var(--ink-3-inverse);
+  }
+
+  /* Primary button — solid ink fill. ONE style. */
+  .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.6em;
-    padding: 0.95em 1.6em;
-    background-color: var(--ink);
-    color: var(--bg);
+    gap: 0.5em;
+    padding: 0.85em 1.5em;
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     border-radius: 0;
     border: 1px solid var(--ink);
-    transition: background-color 0.32s var(--ease-soft),
-                color 0.32s var(--ease-soft),
-                transform 0.32s var(--ease-soft);
+    background-color: var(--ink);
+    color: var(--bg);
+    transition: background-color 0.3s var(--ease-soft),
+                color 0.3s var(--ease-soft),
+                border-color 0.3s var(--ease-soft),
+                transform 0.3s var(--ease-soft);
+    cursor: pointer;
   }
-  .btn-primary:hover {
+  .btn:hover {
     background-color: var(--ink-2);
+    border-color: var(--ink-2);
   }
-  .btn-primary:active {
+  .btn:active {
     transform: translateY(1px);
   }
-
-  /* On dark sections */
-  .btn-primary-on-dark {
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  /* On dark sections — inverted */
+  .btn-on-dark {
     background-color: var(--bg);
     color: var(--ink);
     border-color: var(--bg);
   }
-  .btn-primary-on-dark:hover {
+  .btn-on-dark:hover {
     background-color: var(--bone);
     border-color: var(--bone);
   }
-
-  /* Secondary button — outline, label slides right on hover */
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6em;
-    padding: 0.95em 1.6em;
+  /* Secondary — outline */
+  .btn-outline {
     background-color: transparent;
     color: var(--ink);
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    border-radius: 0;
-    border: 1px solid var(--ink);
-    transition: background-color 0.28s var(--ease-soft),
-                color 0.28s var(--ease-soft),
-                transform 0.28s var(--ease-soft);
   }
-  .btn-secondary:hover {
+  .btn-outline:hover {
     background-color: var(--ink);
     color: var(--bg);
   }
-  .btn-secondary:hover .btn-arrow {
-    transform: translateX(4px);
+  .btn-outline-on-dark {
+    background-color: transparent;
+    color: var(--ink-inverse);
+    border-color: var(--ink-inverse);
+  }
+  .btn-outline-on-dark:hover {
+    background-color: var(--ink-inverse);
+    color: var(--ink);
   }
   .btn-arrow {
-    transition: transform 0.28s var(--ease-soft);
+    transition: transform 0.3s var(--ease-soft);
+  }
+  .btn:hover .btn-arrow {
+    transform: translateX(3px);
   }
 
-  /* Text link with growing underline */
-  .link-underline {
+  /* Text link — growing underline */
+  .link {
     position: relative;
     display: inline-block;
     color: var(--ink);
     text-decoration: none;
-    transition: color 0.28s var(--ease-soft);
+    transition: color 0.3s var(--ease-soft);
   }
-  .link-underline::after {
+  .link::after {
     content: "";
     position: absolute;
     left: 0;
@@ -373,13 +390,19 @@
     background-color: var(--ink);
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform 0.32s var(--ease-soft);
+    transition: transform 0.3s var(--ease-soft);
   }
-  .link-underline:hover::after {
+  .link:hover::after {
     transform: scaleX(1);
   }
+  .link-on-dark {
+    color: var(--ink-inverse);
+  }
+  .link-on-dark::after {
+    background-color: var(--ink-inverse);
+  }
 
-  /* Nav link with growing underline */
+  /* Nav link */
   .nav-link {
     position: relative;
     display: inline-block;
@@ -388,9 +411,9 @@
     font-family: var(--font-sans);
     font-size: 14px;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
     text-decoration: none;
-    transition: color 0.28s var(--ease-soft);
+    transition: color 0.3s var(--ease-soft);
   }
   .nav-link::after {
     content: "";
@@ -402,70 +425,56 @@
     background-color: var(--ink);
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform 0.32s var(--ease-soft);
+    transition: transform 0.3s var(--ease-soft);
   }
   .nav-link:hover::after,
   .nav-link[data-active="true"]::after {
     transform: scaleX(1);
   }
 
-  /* Pillar / case card — subtle lift, no scale, no shadow */
-  .card-bone {
+  /* Card — LOCKED one style. Sharp corners, hairline border. */
+  .card {
     background-color: var(--paper);
     border: 1px solid var(--line);
     border-radius: 0;
-    transition: border-color 0.32s var(--ease-soft),
-                transform 0.32s var(--ease-soft);
+    padding: 2rem;
+    transition: border-color 0.3s var(--ease-soft),
+                transform 0.3s var(--ease-soft);
   }
-  .card-bone:hover {
+  .card:hover {
     border-color: var(--line-strong);
     transform: translateY(-2px);
   }
+  .card-bone {
+    background-color: var(--bone);
+  }
+  .card-dark {
+    background-color: var(--bg-deep);
+    border-color: var(--line-inverse);
+  }
+  .card-dark:hover {
+    border-color: var(--ink-inverse);
+  }
 
-  /* Image hover — delayed scale on intent */
-  .img-frame {
+  /* Image frame — LOCKED one style. Sharp corners, hairline border. */
+  .frame {
     overflow: hidden;
+    border: 1px solid var(--line);
     border-radius: 0;
   }
-  .img-frame img {
-    transition: transform 0.48s var(--ease-soft);
+  .frame-dark {
+    border-color: var(--line-inverse);
   }
-  .img-frame:hover img {
+  .frame img {
+    transition: transform 0.5s var(--ease-soft);
+  }
+  .frame:hover img {
     transform: scale(1.02);
   }
 
-  /* Section eyebrow with index */
-  .eyebrow-row {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75em;
-    color: var(--ink-3);
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-  }
-  .eyebrow-row::before {
-    content: "";
-    width: 28px;
-    height: 1px;
-    background-color: var(--ink-3);
-  }
-
-  .eyebrow-row-inverse {
-    color: var(--ink-3-inverse);
-  }
-  .eyebrow-row-inverse::before {
-    background-color: var(--ink-3-inverse);
-  }
-
-  /* Hairline section divider */
+  /* Hairline divider */
   .hairline {
     border-top: 1px solid var(--line);
-  }
-  .hairline-strong {
-    border-top: 1px solid var(--line-strong);
   }
   .hairline-inverse {
     border-top: 1px solid var(--line-inverse);
@@ -485,7 +494,7 @@
 }
 
 /* =====================================================================
-   SCROLLBAR (subtle, warm)
+   SCROLLBAR
    ===================================================================== */
 ::-webkit-scrollbar {
   width: 10px;

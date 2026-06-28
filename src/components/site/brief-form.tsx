@@ -37,7 +37,7 @@ export function BriefForm() {
             htmlFor="pillar"
             className="text-eyebrow text-ink-3"
           >
-            Which pillar is the leak in?
+            Which service?
           </label>
           <select
             id="pillar"
@@ -46,31 +46,31 @@ export function BriefForm() {
             className="w-full border border-line bg-bg px-4 py-3 text-body text-ink focus:outline-none focus:border-ink transition-colors"
           >
             <option value="" disabled>
-              Pick a pillar —
+              Pick a service —
             </option>
             <option value="operational-efficiency">
-              01 — Operational Efficiency
+              01 — Automation & AI
             </option>
             <option value="immersive-visual-assets">
-              02 — Immersive Visual Assets
+              02 — 3D & Visuals
             </option>
-            <option value="market-dominance">03 — Market Dominance</option>
-            <option value="not-sure">I am not sure — that is part of the brief</option>
+            <option value="market-dominance">03 — Websites & Search</option>
+            <option value="not-sure">I'm not sure</option>
           </select>
         </div>
       </div>
 
-      {/* Leak */}
+      {/* Problem */}
       <div className="flex flex-col gap-2">
         <label htmlFor="leak" className="text-eyebrow text-ink-3">
-          Where is the money leaking? *
+          What's not working? *
         </label>
         <textarea
           id="leak"
           name="leak"
           rows={6}
           required
-          placeholder="Write the symptom in plain English. We do not need a brief — we need the leak written down as honestly as you can write it, and we will tell you inside one conversation whether we are the right studio to close it."
+          placeholder="Tell us, in plain words, what's costing you time or money. We don't need a polished brief — just the actual problem."
           className="w-full border border-line bg-bg px-4 py-3 text-body text-ink placeholder:text-ink-3 focus:outline-none focus:border-ink transition-colors resize-y"
         />
       </div>
@@ -88,15 +88,15 @@ export function BriefForm() {
       {/* Submit */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-caption text-ink-3 max-w-[42ch]">
-          We read every brief personally and reply within two working days,
+          We read every message personally and reply within two working days,
           Monday to Thursday.
         </p>
         <button
           type="submit"
           disabled={pending}
-          className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {pending ? "Sending…" : "Send the brief"}
+          {pending ? "Sending…" : "Send message"}
           {!pending && (
             <span className="btn-arrow" aria-hidden>
               →
