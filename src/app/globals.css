@@ -1,0 +1,444 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =====================================================================
+   LIGEFF AGENCY — GLOBAL DESIGN TOKENS
+   Pure warm monochrome. No accent. No cool grays. No gradients.
+   ===================================================================== */
+
+@theme inline {
+  /* Color tokens — warm monochrome only */
+  --color-bg: var(--bg);
+  --color-bg-deep: var(--bg-deep);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-paper: var(--paper);
+  --color-bone: var(--bone);
+  --color-ink-inverse: var(--ink-inverse);
+  --color-ink-2-inverse: var(--ink-2-inverse);
+  --color-ink-3-inverse: var(--ink-3-inverse);
+  --color-line-inverse: var(--line-inverse);
+
+  /* shadcn compatibility aliases (kept warm) */
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-card: var(--paper);
+  --color-card-foreground: var(--ink);
+  --color-popover: var(--paper);
+  --color-popover-foreground: var(--ink);
+  --color-primary: var(--ink);
+  --color-primary-foreground: var(--bg);
+  --color-secondary: var(--bone);
+  --color-secondary-foreground: var(--ink);
+  --color-muted: var(--bone);
+  --color-muted-foreground: var(--ink-3);
+  --color-accent: var(--bone);
+  --color-accent-foreground: var(--ink);
+  --color-destructive: #8B2C1A;
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--ink);
+
+  /* Type families */
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Radii — varied by intent */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-full: 9999px;
+
+  /* Easing */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  /* Warm monochrome palette */
+  --bg: #FAF7F1;
+  --bg-deep: #1A1611;
+  --ink: #1A1611;
+  --ink-2: #4A4339;
+  --ink-3: #7A7060;
+  --line: #E5DCC9;
+  --line-strong: #1A1611;
+  --paper: #FFFFFF;
+  --bone: #F1EBDC;
+  --ink-inverse: #FAF7F1;
+  --ink-2-inverse: #BDB29C;
+  --ink-3-inverse: #8A8170;
+  --line-inverse: #3A332A;
+
+  /* Radius for shadcn (kept tight) */
+  --radius: 0px;
+
+  /* Legacy shadcn tokens (kept warm to avoid cool-gray leakage) */
+  --sidebar: var(--bone);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--bg);
+  --sidebar-accent: var(--bone);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--ink);
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.65;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background-color: var(--ink);
+    color: var(--bg);
+  }
+
+  /* Headlines use the display serif */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+  }
+
+  /* Focus ring — warm, not blue */
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+}
+
+/* =====================================================================
+   LIGEFF AGENCY — TYPOGRAPHY UTILITIES
+   ===================================================================== */
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-sans { font-family: var(--font-sans); }
+
+  .text-display {
+    font-family: var(--font-display);
+    font-size: clamp(56px, 9vw, 156px);
+    font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 0;
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+  }
+
+  .text-headline {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 400;
+    font-variation-settings: "opsz" 96, "SOFT" 0;
+    line-height: 1.0;
+    letter-spacing: -0.015em;
+  }
+
+  .text-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.4vw, 36px);
+    font-weight: 500;
+    font-variation-settings: "opsz" 36;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .text-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    line-height: 1.0;
+  }
+
+  .text-body-lg {
+    font-family: var(--font-sans);
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+
+  .text-body {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0;
+  }
+
+  .text-caption {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+  }
+
+  /* Readability column */
+  .measure {
+    max-width: 68ch;
+  }
+  .measure-tight {
+    max-width: 42ch;
+  }
+
+  /* Warm tone helpers */
+  .bg-paper { background-color: var(--paper); }
+  .bg-bone { background-color: var(--bone); }
+  .bg-deep { background-color: var(--bg-deep); }
+  .text-ink { color: var(--ink); }
+  .text-ink-2 { color: var(--ink-2); }
+  .text-ink-3 { color: var(--ink-3); }
+  .text-ink-inverse { color: var(--ink-inverse); }
+  .text-ink-2-inverse { color: var(--ink-2-inverse); }
+  .text-ink-3-inverse { color: var(--ink-3-inverse); }
+  .border-line { border-color: var(--line); }
+  .border-line-strong { border-color: var(--line-strong); }
+  .border-line-inverse { border-color: var(--line-inverse); }
+}
+
+/* =====================================================================
+   LIGEFF AGENCY — MICRO-INTERACTIONS
+   No harsh snaps. No scale(1.05). No drop-shadow-on-hover.
+   ===================================================================== */
+
+@layer components {
+  /* Primary button — solid ink fill, sharp corners */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    padding: 0.95em 1.6em;
+    background-color: var(--ink);
+    color: var(--bg);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 1px solid var(--ink);
+    transition: background-color 0.32s var(--ease-soft),
+                color 0.32s var(--ease-soft),
+                transform 0.32s var(--ease-soft);
+  }
+  .btn-primary:hover {
+    background-color: var(--ink-2);
+  }
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  /* On dark sections */
+  .btn-primary-on-dark {
+    background-color: var(--bg);
+    color: var(--ink);
+    border-color: var(--bg);
+  }
+  .btn-primary-on-dark:hover {
+    background-color: var(--bone);
+    border-color: var(--bone);
+  }
+
+  /* Secondary button — outline, label slides right on hover */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    padding: 0.95em 1.6em;
+    background-color: transparent;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 1px solid var(--ink);
+    transition: background-color 0.28s var(--ease-soft),
+                color 0.28s var(--ease-soft),
+                transform 0.28s var(--ease-soft);
+  }
+  .btn-secondary:hover {
+    background-color: var(--ink);
+    color: var(--bg);
+  }
+  .btn-secondary:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+  .btn-arrow {
+    transition: transform 0.28s var(--ease-soft);
+  }
+
+  /* Text link with growing underline */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.28s var(--ease-soft);
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background-color: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.32s var(--ease-soft);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Nav link with growing underline */
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 0.28s var(--ease-soft);
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background-color: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.32s var(--ease-soft);
+  }
+  .nav-link:hover::after,
+  .nav-link[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Pillar / case card — subtle lift, no scale, no shadow */
+  .card-bone {
+    background-color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    transition: border-color 0.32s var(--ease-soft),
+                transform 0.32s var(--ease-soft);
+  }
+  .card-bone:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+  }
+
+  /* Image hover — delayed scale on intent */
+  .img-frame {
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .img-frame img {
+    transition: transform 0.48s var(--ease-soft);
+  }
+  .img-frame:hover img {
+    transform: scale(1.02);
+  }
+
+  /* Section eyebrow with index */
+  .eyebrow-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75em;
+    color: var(--ink-3);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+  }
+  .eyebrow-row::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background-color: var(--ink-3);
+  }
+
+  .eyebrow-row-inverse {
+    color: var(--ink-3-inverse);
+  }
+  .eyebrow-row-inverse::before {
+    background-color: var(--ink-3-inverse);
+  }
+
+  /* Hairline section divider */
+  .hairline {
+    border-top: 1px solid var(--line);
+  }
+  .hairline-strong {
+    border-top: 1px solid var(--line-strong);
+  }
+  .hairline-inverse {
+    border-top: 1px solid var(--line-inverse);
+  }
+}
+
+/* =====================================================================
+   REDUCED MOTION
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =====================================================================
+   SCROLLBAR (subtle, warm)
+   ===================================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-3);
+}
