@@ -334,3 +334,63 @@ Use `next/image` for all images. Use a single shared `AspectRatio` wrapper and `
 ## 13. THE SINGLE-SENTENCE BRIEF
 
 Build a warm-monochrome, editorial, asymmetric, multipage site for Ligeff Agency that sells three pillars — Operational Efficiency, Immersive Visual Assets, and Market Dominance — in long-flowing grade-3 English that talks about cash and time, never about tech, and that looks like a quiet science museum instead of a SaaS landing page.
+
+---
+
+## 14. DESIGN STYLE: SWISS MODERNIST / INTERNATIONAL TYPOGRAPHIC STYLE
+
+**Style name:** Swiss Modernist (also: International Typographic Style, ITS)
+
+This is the governing structural language of the site. Every section, every grid, every component answers to the principles below.
+
+### 14.1 Core principles
+
+1. **Screen-fit sections.** Every major section is designed to fit within one viewport on desktop (`min-h-[calc(100vh-80px)]` accounting for the 80px header). The user should see the entire section — headline, body, visual, CTA — without scrolling. If a section cannot fit, it is split into two sections, not allowed to overflow.
+
+2. **Generous whitespace.** Whitespace is the primary structural element, not a leftover. Sections use `py-24 md:py-32 lg:py-40` minimum. Inner elements use `gap-12 md:gap-16 lg:gap-24`. The page should feel like a gallery, not a brochure.
+
+3. **Visual-first, text-second.** Every section leads with or is anchored by a visual element (image, diagram, or typographic composition). Copy is concise — one headline + one short paragraph per section, not three paragraphs of long-form prose. The long-flowing Kennedy copy is reserved for service subpage "Bleed" sections only; the rest of the site is tight.
+
+4. **Asymmetric grids.** 7/5 and 5/7 splits are the default. 6/6 is banned. 4/4/4 is banned. The eye must move diagonally, not in a straight line.
+
+5. **Numbered indices.** Every section, every card, every pillar carries a large display numeral (`01`, `02`, `03`) set in Fraunces at `text-display` or `text-headline` scale, in `--ink-3` (the muted warm gray). The number is the anchor; the title sits beside it.
+
+6. **Hairline structure.** Sections are divided by 1px `--line` hairlines, not by whitespace alone. The hairline is the structural beam of the page.
+
+### 14.2 Standard homepage sections (mandatory)
+
+The home page must contain these sections in this order, each screen-fit:
+
+1. **Hero** — asymmetric 7/5: large display headline + short lede + CTA on the left; large image/visual on the right.
+2. **Intro + Stats** — one sentence positioning statement + three large numerical stats (e.g. "90 days", "3 pillars", "4 specialists").
+3. **Three Pillars** — three numbered pillar cards in a staggered asymmetric row (NOT three equal columns — vary the vertical offset or the width).
+4. **Featured Work** — one large image + caption + "view portfolio" link, asymmetric.
+5. **Process** — four numbered steps in a horizontal flow with hairline connectors.
+6. **Testimonial** — one large quote in a dark band, centered or asymmetric.
+7. **CTA** — one display headline + one button, generous whitespace.
+
+### 14.3 Section sizing utilities
+
+```css
+.section-screen { min-height: calc(100vh - 80px); display: flex; flex-direction: column; justify-content: center; }
+.section-tall   { min-height: calc(100vh - 80px); }
+.section-auto   { min-height: auto; } /* for sections that genuinely need less */
+```
+
+Use `section-screen` for hero, pillars, featured work, testimonial, CTA. Use `section-auto` only for thin bands (trust bar, hairline dividers).
+
+### 14.4 Image-first composition
+
+On service subpages, the "Proof Anchor" section must use real images (not placeholder plates) sourced as follows:
+- **Pillar 01 (Operational Efficiency):** custom inline SVG workflow diagrams (before/after automation maps, time-saved charts, error-rate comparisons).
+- **Pillar 02 (Immersive Visual Assets):** real 3D architectural renders from renderflauxstudio.com (sourced with permission, stored locally in `/public/samples/pillar-02-renderflaux/`).
+- **Pillar 03 (Market Dominance):** real marketing/educational/branding materials from okunadeabdulakeem.com (sourced with permission, stored locally in `/public/samples/pillar-03-okunade/`).
+
+### 14.5 Copy density reduction
+
+The previous build was too text-heavy. New rules:
+- Home page: max 1 short paragraph per section (2–3 sentences max, not 5–6).
+- Service hub: max 2 short paragraphs per pillar row.
+- Service subpages: the "Bleed" section keeps the long-flowing Kennedy copy; all other sections reduce to 1–2 sentences per phase/card.
+- About page: team bios reduce to 2 sentences each (not 4–5).
+- Portfolio: 1 sentence for "leak" + 1 sentence for "math" per entry.
